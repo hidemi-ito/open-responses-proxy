@@ -1,8 +1,8 @@
-# Open Responses
+# Open Responses Proxy
 
-**An OpenAI Responses API-compatible server that lets you run Anthropic Claude (Opus, Sonnet) — and any OpenAI-compatible model — through the exact same API surface.**
+**A self-hosted OpenAI Responses API server with pluggable LLM backends — Anthropic Claude, vLLM, Ollama, and more through the exact same API surface.**
 
-If you're using the [OpenAI Agents SDK](https://github.com/openai/openai-agents-js), changing one `baseURL` is all it takes to switch your backend to Claude.
+If you're using the [OpenAI Agents SDK](https://github.com/openai/openai-agents-js), changing one `baseURL` is all it takes to run it against any backend.
 
 ```typescript
 import { OpenAIProvider, setOpenAIAPI } from "@openai/agents";
@@ -10,7 +10,7 @@ import { OpenAIProvider, setOpenAIAPI } from "@openai/agents";
 setOpenAIAPI("responses");
 
 const provider = new OpenAIProvider({
-  baseURL: "https://your-open-responses-server.example.com/v1",
+  baseURL: "https://your-open-responses-proxy.example.com/v1",
   apiKey: "your-api-key",
 });
 ```
@@ -229,7 +229,7 @@ Contributions of all kinds are welcome — bug reports, feature requests, docume
 
 ### How to contribute
 
-- **Bug reports & feature requests** — [Open an issue](../../issues). Please include steps to reproduce for bugs, and a clear use case for feature requests.
+- **Bug reports & feature requests** — [Open an issue](https://github.com/hidemi-ito/open-responses-proxy/issues). Please include steps to reproduce for bugs, and a clear use case for feature requests.
 - **Questions & discussion** — Issues are fine for questions too. There are no dumb questions.
 - **Pull requests** — Fork the repo, create a branch, and send a PR. For larger changes, opening an issue to discuss the approach beforehand saves everyone time.
 - **New provider adapters** — Implementing a new backend (Gemini, Mistral, Cohere, etc.) is one of the most impactful contributions. See [Adding a model](#adding-a-model) and the existing adapters in `lib/providers/` for guidance.
